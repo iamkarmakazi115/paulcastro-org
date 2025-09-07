@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paul Castro - Fantasy Novelist</title>
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Paul Castro</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="works.html">In The Works</a></li>
+                <li><a href="social.html">Social Media</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <video autoplay muted loop id="backgroundVideo">
+            <source src="background-home.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+        <div class="hero-content">
+            <h2 class="main-title">Enter Worlds Beyond Imagination</h2>
+            <p class="subtitle">Where ancient bloodlines awaken and forgotten gods rise</p>
+            
+            <div class="bouncing-quote" id="bouncingQuote">
+                "Imagination can be anything you want it to be. Let not the world take away your imagination. Once that's gone, you can feel truly alone."
+            </div>
+            
+            <div class="cta-section">
+                <a href="works.html" class="cta-button">Discover My Worlds</a>
+            </div>
+        </div>
+        
+        <div class="floating-elements">
+            <div class="floating-rune rune-1">⚔</div>
+            <div class="floating-rune rune-2">🐺</div>
+            <div class="floating-rune rune-3">🔥</div>
+            <div class="floating-rune rune-4">👑</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact-form">
+                <h3>Connect With Me</h3>
+                <form action="mailto:paulcastro@paulcastro.org" method="post" enctype="text/plain">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="text" name="subject" placeholder="Subject" required>
+                    <textarea name="message" placeholder="Your Message (max 400 characters)" maxlength="400" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+            <div class="footer-info">
+                <p>&copy; 2025 Paul Castro. All rights reserved.</p>
+                <p>Contact: <a href="mailto:paulcastro@paulcastro.org">paulcastro@paulcastro.org</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/home.js"></script>
+</body>
+</html>
