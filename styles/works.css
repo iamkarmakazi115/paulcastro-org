@@ -204,30 +204,26 @@ main {
     transform-style: preserve-3d;
     transition: transform 0.6s ease-in-out;
     cursor: pointer;
+    transform: rotateY(0deg);
 }
 
-/* Updated animation - spins 4.5 times and lands on blurb (back side) */
+/* Fixed animation - spins exactly 4 times and lands on blurb (180deg = back side) */
 .book-container:hover .book-card {
-    animation: rapidSpinToBlurb 1.2s ease-in-out forwards;
+    animation: spinToBlurb 1.2s ease-in-out forwards;
 }
 
-@keyframes rapidSpinToBlurb {
+@keyframes spinToBlurb {
     0% { transform: rotateY(0deg); }
-    20% { transform: rotateY(90deg); }
-    40% { transform: rotateY(180deg); }
-    60% { transform: rotateY(270deg); }
-    80% { transform: rotateY(360deg); }
-    100% { transform: rotateY(450deg); } /* 4.5 rotations = lands on back (blurb side) */
+    25% { transform: rotateY(360deg); }
+    50% { transform: rotateY(720deg); }
+    75% { transform: rotateY(1080deg); }
+    100% { transform: rotateY(1260deg); } /* 3.5 rotations = exactly 180deg (back side) */
 }
 
-/* Reset animation on mouse leave */
+/* Reset to front when not hovering */
 .book-container:not(:hover) .book-card {
-    animation: resetToFront 0.6s ease-in-out forwards;
-}
-
-@keyframes resetToFront {
-    from { transform: rotateY(450deg); }
-    to { transform: rotateY(0deg); }
+    transform: rotateY(0deg);
+    transition: transform 0.6s ease-in-out;
 }
 
 .book-front,
@@ -244,6 +240,7 @@ main {
 .book-front {
     background: linear-gradient(135deg, #250001 0%, #590004 50%, #A50104 100%);
     border: 3px solid #FCBA04;
+    transform: rotateY(0deg);
 }
 
 .book-back {
@@ -336,42 +333,50 @@ main {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* Book Back/Blurb Design */
+/* Book Back/Blurb Design - FIXED */
 .book-blurb {
-    padding: 2rem;
+    padding: 1.5rem;
     height: 100%;
     overflow-y: auto;
-    background: linear-gradient(135deg, rgba(89, 0, 4, 0.9) 0%, rgba(37, 0, 1, 0.9) 100%);
+    background: linear-gradient(135deg, rgba(89, 0, 4, 0.95) 0%, rgba(37, 0, 1, 0.95) 100%);
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .book-blurb::before {
     content: '';
     position: absolute;
-    top: 15px;
-    left: 15px;
-    right: 15px;
-    bottom: 15px;
-    border: 1px solid rgba(252, 186, 4, 0.3);
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 2px solid rgba(252, 186, 4, 0.4);
     border-radius: 10px;
     pointer-events: none;
 }
 
 .book-blurb h4 {
     font-family: 'Cinzel', serif;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: #FCBA04;
     margin-bottom: 1rem;
     text-align: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    z-index: 2;
+    position: relative;
 }
 
 .book-blurb p {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 0.8rem;
     color: #F3F3F3;
     text-align: justify;
+    z-index: 2;
+    position: relative;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .book-blurb p:last-child {
@@ -549,11 +554,15 @@ footer {
     }
     
     .book-blurb {
-        padding: 1.5rem;
+        padding: 1.2rem;
+    }
+    
+    .book-blurb h4 {
+        font-size: 1.2rem;
     }
     
     .book-blurb p {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
     
     .footer-content {
@@ -599,5 +608,18 @@ footer {
     
     .mystical-divider {
         width: 200px;
+    }
+    
+    .book-blurb {
+        padding: 1rem;
+    }
+    
+    .book-blurb h4 {
+        font-size: 1.1rem;
+    }
+    
+    .book-blurb p {
+        font-size: 0.8rem;
+        line-height: 1.3;
     }
 }
