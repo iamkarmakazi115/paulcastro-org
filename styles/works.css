@@ -209,7 +209,7 @@ main {
 
 /* Fixed animation - spins exactly 4 times and lands on blurb (180deg = back side) */
 .book-container:hover .book-card {
-    animation: spinToBlurb 1.2s ease-in-out forwards;
+    animation: spinToBlurb 0.8s ease-in-out forwards;
 }
 
 @keyframes spinToBlurb {
